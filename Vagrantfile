@@ -11,5 +11,11 @@ Vagrant.configure(2) do |config|
   config.vm.provision "shell", path: "provision.sh", privileged: true
   config.vm.synced_folder ".", "/vagrant", mount_options: ['dmode=775', 'fmode=664']
 
+  config.vm.synced_folder "../../../git", "/git", mount_options: ['dmode=775', 'fmode=664']
+  config.vm.provider "virtualbox" do |v|
+    v.memory = 2048
+    v.cpus = 2
+  end
+
 end
 
